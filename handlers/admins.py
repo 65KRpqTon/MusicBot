@@ -37,10 +37,10 @@ async def pause(_, message: Message):
     ) or (
             callsmusic.pytgcalls.active_calls[message.chat.id] == 'paused'
     ):
-        await message.reply_text("**⭐KINGBOT⭐**:❗ Nothing is playing!")
+        await message.reply_text("**ZEEN MUSIC**:❗ Nothing is playing!")
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: ▶️ Paused!")
+        await message.reply_text("**ZEEN MUSIC**: ▶️ Paused!")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -52,10 +52,10 @@ async def resume(_, message: Message):
     ) or (
             callsmusic.pytgcalls.active_calls[message.chat.id] == 'playing'
     ):
-        await message.reply_text("**⭐KINGBOT⭐**: 😜 Nothing is paused!")
+        await message.reply_text("**ZEEN MUSIC**: 😜 Nothing is paused!")
     else:
         callsmusic.pytgcalls.resume_stream(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: ⏸ Resumed!!")
+        await message.reply_text("**ZEEN MUSIC**: ⏸ Resumed!!")
 
 
 @Client.on_message(command("end") & other_filters)
@@ -63,7 +63,7 @@ async def resume(_, message: Message):
 @authorized_users_only
 async def stop(_, message: Message):
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("**⭐KINGBOT⭐**: 😅 Nothing is streaming!")
+        await message.reply_text("**ZEEN MUSIC**: 😅 Nothing is streaming!")
     else:
         try:
             callsmusic.queues.clear(message.chat.id)
@@ -71,7 +71,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(message.chat.id)
-        await message.reply_text("**⭐KINGBOT⭐**: 🙇Stopped streaming!")
+        await message.reply_text("**ZEEN MUSIC**: 🙇Stopped streaming!")
 
 
 @Client.on_message(command("skip") & other_filters)
@@ -80,7 +80,7 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     global que
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("**⭐KINGBOT⭐**:❗ Nothing is playing boss to skip!! I think its last song! or not playing song!!")
+        await message.reply_text("**ZEEN MUSIC**:❗ Nothing is playing boss to skip!! I think its last song! or not playing song!!")
     else:
         callsmusic.queues.task_done(message.chat.id)
 
@@ -102,9 +102,9 @@ async def skip(_, message: Message):
 
 
 @Client.on_message(
-    filters.command("admincache")
+    filters.command("reload")
 )
 @errors
 async def admincache(client, message: Message):
     set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
-    #await message.reply_text("**⭐KINGBOT⭐**: Admin cache refreshed!")
+    #await message.reply_text("**ZEEN MUSIC**: Admin cache refreshed!🔥")
