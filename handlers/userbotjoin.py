@@ -20,7 +20,7 @@ async def addchannel(client, message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "kingbot_Music_Bot_Assistant"
+        user.first_name =  "zeenasisten"
 
     try:
         await USER.join_chat(invitelink)
@@ -34,7 +34,7 @@ async def addchannel(client, message):
         print(e)
         await message.reply_text(
             f"<b>🙃 Flood Wait Error 🙃 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add @kingbot_Music_Bot_Assistant to your Group and try again</b>",
+            "\n\nOr manually add @zeenasisten to your Group and try again</b>",
         )
         return
     await message.reply_text(
